@@ -1,11 +1,14 @@
 ::
 :: wordtime.bat
 :: = shows a visual word clock
+:: = has 6 randomized themes
 
 @echo off
 setlocal enabledelayedexpansion
 if defined reboot goto reboot
 set reboot=a
+:: god i love command prompt's random seeding
+set /a color_random=%random%*6/32768
 start "" "%~dpnx0"
 goto :eof
 
@@ -15,14 +18,15 @@ chcp 65001>nul
 title word clock^^^!
 
 :adjustables
-:: themes:
-::  - red			cf 97 31
-::  - matrix		0f 97 32
-::  - dark, teal	0f 36 90
-::  - dark, yellow	0f 93 90
-::  - black/white	0f 97 90
 set color=0f
-set color_white=[93m
+
+:: color randomizer
+if %color_random% equ 0 set color_white=[91m
+if %color_random% equ 1 set color_white=[92m
+if %color_random% equ 2 set color_white=[93m
+if %color_random% equ 3 set color_white=[95m
+if %color_random% equ 4 set color_white=[96m
+if %color_random% equ 5 set color_white=[97m
 set color_white2=[37m
 set color_dark=[90m
 
