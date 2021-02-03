@@ -4,7 +4,7 @@
 	<style>
 		body {
 			padding: 20px 10px;
-			font-family: "jetbrains mono";
+			font-family: "jetbrains mono", monospace;
 			background-color: #000;
 		}
 		.box_1 {
@@ -47,12 +47,11 @@
 								// console.log(cut, max, "upper");
 								var round = max;
 								break;
-						};
-						// i just thought switch looked better
+						}; // i just thought switch looked better
 						rh.push(round)
 						break;
 					};
-				};
+				}; // from my original python comment: "is there a single command to do the rounding instead?"
 			};
 			var rh_full = (rh[0] * 0x10000) + (rh[1] * 0x100) + rh[2];
 			return rh_full.toString(16).padStart(6, '0');
