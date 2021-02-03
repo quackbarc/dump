@@ -1,0 +1,110 @@
+<html>
+<head>
+	<title>have sex</title>
+	<style>
+		body {
+			padding: 20px 10px;
+			font-family: "jetbrains mono";
+			background-color: #000;
+		}
+		.box_1 {
+			display: flex;
+			width: 440px;
+			padding: 15px 10px 6px;
+			background-color: white;
+		}
+		.box_inner {
+			padding: 0px 10px;
+		}
+		.colorbox {
+			background-color: #000;
+			height: 50px;
+			width: 200px;
+		}
+		#have {
+			width: 200px;
+		}
+	</style>
+	<script type="text/javascript">
+		function calcus(h) {
+			const safevalues = [0x00, 0x33, 0x66, 0x99, 0xcc, 0xff];
+			const safevalues_min = [0x00, 0x00, 0x33, 0x66, 0x99, 0xcc];
+			var rh = [];
+
+			for (i = 0; i < 5; i += 2) {
+				var cut = parseInt(h.slice(i, i+2), 16);
+				var round;
+				for (j = 0; j < safevalues.length; j++) {
+					if (cut <= safevalues[j]) {
+						var min = safevalues_min[j];
+						var max = safevalues[j];
+						switch (cut < (min + max) / 2) {
+							case true:
+								// console.log(cut, min, "lower");
+								var round = min;
+								break;
+							case false:
+								// console.log(cut, max, "upper");
+								var round = max;
+								break;
+						};
+						// i just thought switch looked better
+						rh.push(round)
+						break;
+					};
+				};
+			};
+			var rh_full = (rh[0] * 0x10000) + (rh[1] * 0x100) + rh[2];
+			return rh_full.toString(16).padStart(6, '0');
+		};
+		function rgb(d) {   // should i add this to calcus()?
+			var rh = [];
+			for (i = 0; i < 5; i += 2) {
+				var cut = parseInt(d.slice(i, i+2), 16);
+				rh.push(cut)
+			};
+			return rh;
+		};
+	</script>
+	</head>
+
+<body id="body">
+	<p style="padding-left: 10px; color: white">
+		<span style="color: #666">#001 jan. 31: </span>
+		closest websafe color
+	</p>
+	<div class="box_1">
+		<div class="box_inner">
+			<input type="text" id="have">
+			<div class="colorbox" id="colorbox">	</div>
+			<p id="downtext1">
+			</p>
+		</div>
+		<div class="box_inner">
+			<span style="display: block; padding: 1px 4px 2px">web color equivalent</span>
+			<div class="colorbox" id="colorbox2">	</div>
+			<p id="downtext2">
+			</p>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	function sleep(ms) {
+	  return new Promise(resolve => setTimeout(resolve, ms));
+	}
+	var textbox = document.getElementById('have');
+	var button = document.getElementById('sss');
+	textbox.addEventListener('keydown', function(e){
+		if (e.keyCode == 13) {
+			var text = textbox.value;
+			var hex = text.padStart(6, '0');
+			var safehex = calcus(hex);
+			downtext1.innerHTML = "<strong>#" + hex + "</strong><br/>" + rgb(hex);
+			downtext2.innerHTML = "<strong>#" + safehex + "</strong><br/>" + rgb(safehex);
+			colorbox.style.backgroundColor = "#" + hex;
+			colorbox2.style.backgroundColor = "#" + safehex;
+		};
+	});
+</script>
+</html>
