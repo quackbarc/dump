@@ -13,4 +13,5 @@ though i don't use github too much, so don't mind my... incorrect usage of descr
 
 the above .bat's require Windows 10's command prompt for VT/color support.
 
+* **[tetris](/tetris.bat)** -- a laggy but somewhat playable game of tetris.
 * **[websafe](/websafe.html)**.html -- a simple real-time converter that rounds a color to the nearest [websafe color](https://en.wikipedia.org/wiki/Web_colors#Web-safe_colors).
