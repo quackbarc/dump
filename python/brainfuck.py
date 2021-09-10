@@ -9,42 +9,50 @@ def _update_memory(memory, cell_head, size):
 
 class Results:
     """Represents the results of a brainfuck parse."""
+
+    # maybe i should use @dataclass for this?
+
     def __init__(self,
         output,
         operations,
         memory,
         p,
         inputs):
-        self.output = output
-        self.operations = operations
-        self.memory = memory
-        self.input = p
-        self.inputs = inputs
+        self._output = output
+        self._operations = operations
+        self._memory = memory
+        self._input = p
+        self._inputs = inputs
 
     @property
     def input(self) -> str:
         """The inputted brainfuck string."""
-        return self.input
+        return self._input
 
+    @property
+    def clean_input(self):
+        """The inputted brainfuck string, containing only valid brainfuck characters."""
+        return ''.join(filter(lambda x: x in '+-<>[].,', self._input))
+    
     @property
     def output(self) -> str:
         """The output of the brainfuck."""
-        return self.output
+        return self._output
 
     @property
     def operations(self) -> int:
         """The number of operations done on the brainfuck parse."""
-        return self.operations
+        return self._operations
 
     @property
     def memory(self) -> list:
         """The state of memory at the end of the parse."""
-        return self.memory
+        return self._memory
 
     @property
     def inputs(self) -> list:
         """The inputs passed during the parse."""
-        return self.inputs
+        return self._inputs
 
 def parse(p, *, inputs=[], limit=None, size=None, verbose=False, results=False) -> str or Results:
     """Parses a brainfuck code and returns its output.
