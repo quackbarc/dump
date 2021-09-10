@@ -55,7 +55,7 @@ class Results:
         return self._inputs
 
 def parse(p, *, inputs=[], limit=None, size=None, verbose=False, results=False) -> str or Results:
-    """Parses a brainfuck code and returns its output.
+    """Parses brainfuck code and returns its output.
 
     Characters aside from the default eight will simply be ignored.
     Blank inputs will be passed in as ASCII character 0x00.
