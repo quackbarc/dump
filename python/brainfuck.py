@@ -12,17 +12,9 @@ class Results:
 
     # maybe i should use @dataclass for this?
 
-    def __init__(self,
-        output,
-        operations,
-        memory,
-        p,
-        inputs):
-        self._output = output
-        self._operations = operations
-        self._memory = memory
-        self._input = p
-        self._inputs = inputs
+    def __init__(self, *args, **kwargs):
+        for x, y in kwargs.items():
+            setattr(self, f"_{x}", y)
 
     @property
     def input(self) -> str:
@@ -182,6 +174,11 @@ def parse(p, *, inputs=[], limit=None, size=None, verbose=False, results=False) 
         raise ValueError('a square bracket was left open at position {}'.format(references[0] - 1))
 
     if results:
-        return Results(output, operations, memory, p, inputs)
+        return Results(
+            output=output,
+            operations=operations,
+            memory=memory,
+            input=p,
+            inputs=inputs)
     else:
         return output
