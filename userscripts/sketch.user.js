@@ -3,7 +3,7 @@
 // @namespace   garyc.me by quackbarc
 // @description QoL tweaks and personal mods for garyc.me/sketch
 // @author      quac
-// @version     1.0.0
+// @version     1.0.1
 // @match       https://garyc.me/sketch*
 // @icon        https://cdn.discordapp.com/attachments/416900237618315274/932976241282252800/crung.png
 // @run-at      document-body
@@ -43,7 +43,8 @@ function injectStyle() {
             height: 30px;
         }
         td > input#swap {
-            width: 40%;
+            width: auto;
+            min-width: 40%;
         }
         td > span#stats {
             padding: 0px 3px;
