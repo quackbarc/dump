@@ -18,3 +18,8 @@ the batch files below require VT/color support:
 #### /python
 * **[gol](/python/gol.py)**.py -- an object-oriented simulation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 * **[brainfuck](/python/brainfuck.py)**.py -- a simple parser for [brainfuck](https://en.wikipedia.org/wiki/Brainfuck "here's a WP article if you somehow don't know about it").
+
+#### /userscripts
+* **[sketch](/userscripts/sketch.user.js)**.user.js -- a personal userscript for the anarchy web 1.0 drawing website [garyc.me](https://garyc.me).
+
+> ℹ️ Note: development for sketch.user.js has moved to [another repository](https://github.com/quackbarc/garyc-sketch-tweaks). i highly recommend using that one instead.
