@@ -6,6 +6,7 @@
 // @version     1.0.1
 // @match       https://garyc.me/sketch*
 // @icon        https://cdn.discordapp.com/attachments/416900237618315274/932976241282252800/crung.png
+// @downloadURL https://github.com/quackbarc/garyc-sketch-tweaks/raw/master/sketch.user.js
 // @run-at      document-body
 // @grant       none
 // @require     https://gist.githubusercontent.com/arantius/3123124/raw/grant-none-shim.js
